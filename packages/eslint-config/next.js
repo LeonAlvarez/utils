@@ -1,14 +1,15 @@
-const { resolve } = require("node:path");
+import { resolve } from 'node:path';
+import { cwd } from 'node:process';
 
-const project = resolve(process.cwd(), "tsconfig.json");
+const project = resolve(cwd(), 'tsconfig.json');
 
 /** @type {import("eslint").Linter.Config} */
-module.exports = {
+export default {
   extends: [
-    "eslint:recommended",
-    "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
-    "turbo",
+    'eslint:recommended',
+    'prettier',
+    resolve('@vercel/style-guide/eslint/next'),
+    'turbo',
   ],
   globals: {
     React: true,
@@ -18,9 +19,9 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["only-warn"],
+  plugins: ['only-warn'],
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: {
         project,
       },
@@ -28,8 +29,16 @@ module.exports = {
   },
   ignorePatterns: [
     // Ignore dotfiles
-    ".*.js",
-    "node_modules/",
+    '.*.js',
+    'node_modules/',
+    'coverage',
+    'public',
+    'dist',
+    'pnpm-lock.yaml',
+    'pnpm-workspace.yaml',
   ],
-  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
+  overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
+  rules: {
+    '@next/next/no-html-link-for-pages': ['error', 'apps/next/pages/'], // adjust this path to match your pages directory
+  },
 };

@@ -1,9 +1,19 @@
 /** @type {import("eslint").Linter.Config} */
-module.exports = {
+export default {
   root: true,
-  extends: ["@repo/eslint-config/next.js"],
-  parser: "@typescript-eslint/parser",
+  extends: ['@repo/eslint-config/next.js'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };
