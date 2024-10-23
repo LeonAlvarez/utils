@@ -26,7 +26,7 @@
   "sideEffects": false,
   "dependencies": {
     "@hono/zod-openapi": "^0.16.4",
-    "@ladc.dev/http-utils": "workspace:*",
+    "@ladc.dev/http-utils": "^0.0.1",
     "@scalar/hono-api-reference": "^0.5.156",
     "hono": "^4.6.6"
   }
