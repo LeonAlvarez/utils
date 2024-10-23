@@ -6,7 +6,6 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsup",
     "publish": "pnpm publish --access public",
     "prepare": "pnpm run build"
@@ -14,10 +13,25 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.47.11",
     "tsup": "^8.3.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.6.3"
   },
-  "files": [
-    "readme.md",
-    "dist/**"
-  ]
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@hono/zod-openapi": "^0.16.4",
+    "@ladc.dev/http-utils": "workspace:*",
+    "@scalar/hono-api-reference": "^0.5.156",
+    "hono": "^4.6.6"
+  }
 }
