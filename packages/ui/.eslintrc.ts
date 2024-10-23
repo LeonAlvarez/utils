@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 /** @type {import("eslint").Linter.Config} */
 export default {
   root: true,
-  extends: ['@repo/eslint-config/react-internal.js'],
+  extends: ['@ladc.dev/eslint-config/react-internal.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.lint.json',
