@@ -1,17 +1,24 @@
 {
   "name": "@ladc.dev/hono-utils",
   "private": false,
-  "version": "0.0.1",
-  "type": "module",
+  "version": "0.0.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsup"
+    "build": "tsup",
+    "publish": "pnpm publish --access public"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.47.11",
     "tsup": "^8.3.0",
     "typescript": "^5.5.3"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
   }
 }
