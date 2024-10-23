@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "tsup",
-    "publish": "pnpm publish --access public",
+    "deploy": "pnpm publish --access public",
     "prepare": "pnpm run build"
   },
   "devDependencies": {
