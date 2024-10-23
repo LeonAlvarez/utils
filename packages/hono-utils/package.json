@@ -32,7 +32,7 @@
   "sideEffects": false,
   "dependencies": {
     "@hono/zod-openapi": "^0.16.4",
-    "@ladc.dev/http-utils": "^0.0.1",
+    "@ladc.dev/http-utils": "^0.0.2",
     "@scalar/hono-api-reference": "^0.5.156",
     "hono": "^4.6.6"
   }

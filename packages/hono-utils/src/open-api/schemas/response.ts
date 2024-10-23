@@ -1,10 +1,10 @@
-import { HttpStatusCode } from '@ladc.dev/http-utils/dist/status/codes';
+import { status as HttpStatusCode } from '@ladc.dev/http-utils/status';
 import { JsonContent } from '@/src/open-api/schemas/content';
 import { z } from '@hono/zod-openapi';
 import { ZodSchema } from '@/src/open-api/schemas/constants';
 
 type ResponseParams = {
-  [key in HttpStatusCode]: {
+  [key in keyof typeof HttpStatusCode]: {
     schema: ZodSchema;
     description: string;
   };
