@@ -1,5 +1,3 @@
-src/
-
 # dev
 .yarn/
 !.yarn/releases
