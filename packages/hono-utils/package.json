@@ -3,16 +3,15 @@
   "private": false,
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/hono-utils.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "tsup"
   },
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.4.8",
-    "vite-plugin-dts": "^4.3.0"
+    "@microsoft/api-extractor": "^7.47.11",
+    "tsup": "^8.3.0",
+    "typescript": "^5.5.3"
   }
 }
