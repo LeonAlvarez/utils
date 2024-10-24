@@ -1,25 +1,29 @@
-import { status as HttpStatusCode } from '@ladc.dev/http-utils/status';
+import { status } from '@ladc.dev/http-utils/status';
 import { JsonContent } from '@/src/open-api/schemas/content';
 import { z } from '@hono/zod-openapi';
 import { ZodSchema } from '@/src/open-api/schemas/constants';
 
 type ResponseParams = {
-  [key in keyof typeof HttpStatusCode]: {
+  [key in status.HttpStatusCode]?: {
     schema: ZodSchema;
     description: string;
   };
 };
 
-export const createResponses = (data: ResponseParams) => {
+export const createResponses = (
+  data: ResponseParams,
+): Record<status.HttpStatusCode, ReturnType<typeof JsonContent>> => {
   return Object.entries(data).reduce(
-    (responses, [code, { schema, description }]) => {
-      responses[parseInt(code)] = JsonContent({
-        schema,
-        description,
-      });
+    (responses, [code, params]) => {
+      if (params && code) {
+        responses[Number(code) as status.HttpStatusCode] = JsonContent({
+          schema: params.schema,
+          description: params.description,
+        });
+      }
       return responses;
     },
-    {} as Record<number, ReturnType<typeof JsonContent>>,
+    {} as Record<status.HttpStatusCode, ReturnType<typeof JsonContent>>,
   );
 };
 
