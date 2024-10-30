@@ -4,7 +4,7 @@ const MESSAGE_HISTORY_SELECTOR = '.tgme_channel_history.js-message_history';
 const MESSAGE_SELECTOR = `.tgme_widget_message.js-widget_message`;
 const TEXT_SELECTOR = '.tgme_widget_message_text';
 const PHOTO_SELECTOR = 'tgme_widget_message_photo_wrap';
-const DATE_TIME_SELECTOR = '.tgme_widget_message_date_time';
+const DATE_TIME_SELECTOR = '.tgme_widget_message_date time';
 
 export const channelExists = (document: any) => {
   return document.querySelector(MESSAGE_HISTORY_SELECTOR);
@@ -103,3 +103,11 @@ export const scrapeChannel = async (
     messages: parsed,
   };
 };
+
+
+(async () => {
+  const channel = 'cambiosryavzla';
+  const lastParsed = 0;
+  const data = await scrapeChannel(channel, lastParsed);
+  console.log(data);
+})();
