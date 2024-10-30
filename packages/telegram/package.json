@@ -1,7 +1,7 @@
 {
   "name": "@ladc.dev/telegram",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
@@ -20,6 +20,9 @@
     "deploy": "pnpm publish --access public",
     "prepare": "pnpm run build"
   },
+  "dependencies": {
+    "linkedom": "^0.18.5"
+  },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.47.11",
     "@types/node": "^22.7.9",
@@ -29,8 +32,5 @@
   "files": [
     "readme.md",
     "dist/**"
-  ],
-  "dependencies": {
-    "linkedom": "^0.18.5"
-  }
+  ]
 }
