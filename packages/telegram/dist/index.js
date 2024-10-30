@@ -5,6 +5,7 @@ var MESSAGE_HISTORY_SELECTOR = ".tgme_channel_history.js-message_history";
 var MESSAGE_SELECTOR = `.tgme_widget_message.js-widget_message`;
 var TEXT_SELECTOR = ".tgme_widget_message_text";
 var PHOTO_SELECTOR = "tgme_widget_message_photo_wrap";
+var DATE_TIME_SELECTOR = ".tgme_widget_message_date_time";
 var channelExists = (document) => {
   return document.querySelector(MESSAGE_HISTORY_SELECTOR);
 };
@@ -39,6 +40,7 @@ var scrapeChannel = async (channel, lastParsed = 0) => {
       return carry;
     }
     const text2 = message.querySelector(TEXT_SELECTOR)?.textContent;
+    message.querySelector(DATE_TIME_SELECTOR)?.getAttribute("datetime");
     const photoElements = message.querySelectorAll(PHOTO_SELECTOR);
     const images = photoElements.reduce((carry2, elem) => {
       const style = elem.getAttribute("style");
