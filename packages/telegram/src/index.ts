@@ -105,9 +105,9 @@ export const scrapeChannel = async (
 };
 
 
-(async () => {
-  const channel = 'cambiosryavzla';
-  const lastParsed = 0;
-  const data = await scrapeChannel(channel, lastParsed);
-  console.log(data);
-})();
+// (async () => {
+//   const channel = 'enparalelovzlatelegram';
+//   const lastParsed = 0;
+//   const data = await scrapeChannel(channel, lastParsed);
+//   console.log(data);
+// })();

@@ -67,11 +67,5 @@ var scrapeChannel = async (channel, lastParsed = 0) => {
     messages: parsed
   };
 };
-(async () => {
-  const channel = "cambiosryavzla";
-  const lastParsed = 0;
-  const data = await scrapeChannel(channel, lastParsed);
-  console.log(data);
-})();
 
 export { channelExists, scrapeChannel };
