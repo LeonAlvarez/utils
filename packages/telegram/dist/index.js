@@ -3,6 +3,8 @@ import { parseHTML } from 'linkedom';
 // src/index.ts
 var MESSAGE_HISTORY_SELECTOR = ".tgme_channel_history.js-message_history";
 var MESSAGE_SELECTOR = `.tgme_widget_message.js-widget_message`;
+var TEXT_SELECTOR = ".tgme_widget_message_text";
+var PHOTO_SELECTOR = "tgme_widget_message_photo_wrap";
 var channelExists = (document) => {
   return document.querySelector(MESSAGE_HISTORY_SELECTOR);
 };
@@ -36,12 +38,8 @@ var scrapeChannel = async (channel, lastParsed = 0) => {
     if (id <= lastParsed) {
       return carry;
     }
-    const text2 = message.querySelector(
-      ".tgme_widget_message_text"
-    )?.textContent;
-    const photoElements = message.querySelectorAll(
-      ".tgme_widget_message_photo_wrap"
-    );
+    const text2 = message.querySelector(TEXT_SELECTOR)?.textContent;
+    const photoElements = message.querySelectorAll(PHOTO_SELECTOR);
     const images = photoElements.reduce((carry2, elem) => {
       const style = elem.getAttribute("style");
       if (!style) {
