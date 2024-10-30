@@ -9,7 +9,7 @@ export const channelExists = (document: any) => {
   return document.querySelector(MESSAGE_HISTORY_SELECTOR);
 };
 
-type ParsedMessage = {
+export type ParsedMessage = {
   id: number;
   text: string | null;
   images: string[];

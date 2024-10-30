@@ -9,4 +9,4 @@ declare const scrapeChannel: (channel: string, lastParsed?: number) => Promise<{
     messages: ParsedMessage[];
 } | null>;
 
-export { channelExists, scrapeChannel };
+export { type ParsedMessage, channelExists, scrapeChannel };
