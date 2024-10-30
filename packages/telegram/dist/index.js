@@ -40,7 +40,7 @@ var scrapeChannel = async (channel, lastParsed = 0) => {
       return carry;
     }
     const text2 = message.querySelector(TEXT_SELECTOR)?.textContent;
-    message.querySelector(DATE_TIME_SELECTOR)?.getAttribute("datetime");
+    const sentAt = message.querySelector(DATE_TIME_SELECTOR).getAttribute("datetime");
     const photoElements = message.querySelectorAll(PHOTO_SELECTOR);
     const images = photoElements.reduce((carry2, elem) => {
       const style = elem.getAttribute("style");
@@ -57,7 +57,8 @@ var scrapeChannel = async (channel, lastParsed = 0) => {
     carry.push({
       id,
       text: text2,
-      images
+      images,
+      sentAt: new Date(sentAt)
     });
     return carry;
   }, []);

@@ -14,6 +14,7 @@ export type ParsedMessage = {
   id: number;
   text: string | null;
   images: string[];
+  sentAt: Date;
 };
 
 export const scrapeChannel = async (
@@ -58,9 +59,11 @@ export const scrapeChannel = async (
     }
 
     const text = message.querySelector(TEXT_SELECTOR)?.textContent;
+
     const sentAt = message
       .querySelector(DATE_TIME_SELECTOR)
-      ?.getAttribute('datetime');
+      .getAttribute('datetime');
+
     const photoElements = message.querySelectorAll(PHOTO_SELECTOR);
 
     const images = photoElements.reduce((carry, elem) => {
@@ -89,6 +92,7 @@ export const scrapeChannel = async (
       id,
       text,
       images,
+      sentAt: new Date(sentAt),
     });
 
     return carry;

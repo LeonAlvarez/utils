@@ -3,6 +3,7 @@ type ParsedMessage = {
     id: number;
     text: string | null;
     images: string[];
+    sentAt: Date;
 };
 declare const scrapeChannel: (channel: string, lastParsed?: number) => Promise<{
     latestMessage: number;
