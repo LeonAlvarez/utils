@@ -1,5 +1,6 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { apiReference, ApiReferenceOptions } from "@scalar/hono-api-reference";
+import { Env } from "hono";
 
 type ConfigureOpenApiOptions = {
   title: string;
@@ -12,8 +13,8 @@ type ConfigureOpenApiOptions = {
   showSidebar?: boolean;
 };
 
-export default function configureOpenApiDocs(
-  app: OpenAPIHono,
+export default function configureOpenApiDocs<T extends Env>(
+  app: OpenAPIHono<T, {}, "/">,
   {
     title,
     version,
